@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' http://localhost:3000" />
+  <title>Hava Durumu — Canlı</title>
+  <link rel="preload" as="style" href="styles.css">
+  <link rel="preload" as="script" href="icons.js">
+  <link rel="preload" as="script" href="app.js">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-bg clear" id="appBg">
+    <div class="card">
+      <header class="header">
+        <h1>Canlı Hava Durumu</h1>
+        <div class="controls">
+          <div class="search-wrapper">
+            <input id="searchInput" placeholder="Şehir ara (örn: Istanbul)" autocomplete="off" />
+            <div id="suggestionsDropdown" class="suggestions-dropdown hidden"></div>
+          </div>
+          <button id="searchBtn">Ara</button>
+          <button id="refreshBtn" title="Yenile">⟳</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="icon-wrap">
+          <div id="icon" class="icon" aria-hidden="true">
+            <!-- SVG icon inserted by JS -->
+          </div>
+          <div class="loading" id="spinner" aria-hidden="true"></div>
+        </div>
+        <div class="location" id="location">—</div>
+        <div class="main-row">
+          <div class="temp" id="temp">—°C</div>
+          <div class="meta">
+            <div id="desc">—</div>
+            <div id="details">—</div>
+          </div>
+        </div>
+        <div class="updated" id="updated">—</div>
+      </section>
+
+      <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+      <footer class="footer">Veri: Open-Meteo · Konum: Tarayıcı/geocoding</footer>
+    </div>
+  </main>
+
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
